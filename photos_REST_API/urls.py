@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from app.views import PhotoListCreateView, PhotoUpdateDeleteView
+
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("api/photo/", PhotoListCreateView.as_view(), name="photos"),
+    path("api/photo/<int:id>/", PhotoUpdateDeleteView.as_view(), name="photo_details"),
 ]
